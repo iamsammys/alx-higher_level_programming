@@ -8,6 +8,5 @@ if __name__ == "__main__":
         arg_str = "argument"
     print("{:d} {:s}{:s}".format(argc, arg_str, ":" if argc > 0 else ""))
     for index, arg in enumerate(argv):
-        if index == 0:
-            continue
-        print("{}: {}".format(index, arg))
+        if index != 0:
+            print("{}: {}".format(index, arg))
