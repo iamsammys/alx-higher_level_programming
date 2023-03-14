@@ -1,4 +1,4 @@
-#!/usr/bin/env pyython3
+#!/usr/bin/pyython3
 
 def add_tuple(tuple_a=(), tuple_b=()):
     len_a = len(tuple_a)
