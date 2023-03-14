@@ -3,8 +3,6 @@
 def max_integer(my_list=[]):
     max = 0
     if len(my_list) == 0:
-        max = None
-    for num in my_list:
-        if num > max:
-            max = num
-    return max
+        return None
+    new_list = sorted(my_list)
+    return new_list[-1]
