@@ -9,11 +9,12 @@ class Square:
     """
     def __init__(self, size=0):
         """Initialises the objects of the class
-        
+
         Args:
             size (int): The size of the Square
         """
         self.size = size
+
     @property
     def size(self):
         """Gets size
@@ -22,6 +23,7 @@ class Square:
             int: The size of the square
         """
         return self.__size
+
     @size.setter
     def size(self, value):
         """Gets the size
@@ -35,6 +37,7 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
+
     def area(self):
         """Calculates the area of the Square
 
