@@ -1,0 +1,87 @@
+"Module to test add_integer function"
+===================================================================
+Function to test: add_integer()
+===================================================================
+
+"Importing the function"
+>>> add_int = __import__("0-add_integer").add_integer
+
+"Testing with two +ve integers"
+>>> add_int(9, 9)
+18
+
+"Testing with a -ve and a +ve number"
+>>> add_int(-9, 9)
+0
+
+"Testing with a +ve and a -ve number"
+>>> add_int(9, -9)
+0
+
+"Testing with two -ve numbers"
+>>> add_int(-9, -9)
+-18
+
+"Testing with a float and an int"
+>>> add_int(9.5, 9)
+18
+
+"Testing with an int and a float"
+>>> add_int(9, 9.4)
+18
+
+"Testing with two floats"
+>>> add_int(9.5, 9.5)
+18
+
+"Testing with a string and a number"
+>>> add_int("aaa", 9)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+"Testing with a number and a string"
+>>> add_int(9, "aaa")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+"Testing with two strings"
+>>> add_int("aaa", "aaa")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+"Testing with a bool and an number"
+>>> add_int(True, 9)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+"Testing with a number and a bool"
+>>> add_int(9, False)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+"Testing with two bools"
+>>> add_int(True, False)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+"Testing with too many args"
+>>> add_int(9, 9, 9)
+Traceback (most recent call last):
+...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+"Testing with fewer args"
+>>> add_int(9)
+107
+
+"Testing with no args"
+>>> add_int()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
