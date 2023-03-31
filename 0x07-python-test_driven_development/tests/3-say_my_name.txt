@@ -1,0 +1,87 @@
+"A test module for say_my_name function"
+=================================================
+"Function: say_my_name()"
+=================================================
+
+"Importing the function"
+>>> my_name = __import__("3-say_my_name").say_my_name
+
+"Testing the module documentation"
+>>> m_doc = __import__("3-say_my_name").__doc__
+>>> len(m_doc) > 1
+True
+
+"Testing function documentation"
+>>> f_doc = __import__("3-say_my_name").say_my_name.__doc__
+>>> len(f_doc) > 1
+True
+
+>>> f_name = "Samuel"
+>>> l_name = "Ezeh"
+>>> t_tuple = (1, 2, 3, 4)
+>>> t_dict = {"key": 1}
+>>> t_list = ['a', 'b', 'c']
+
+"Checking string and string"
+>>> my_name(f_name, l_name)
+My name is Samuel Ezeh
+
+"Checking string and integer"
+>>> my_name(f_name, 98)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+"Checking integer and string"
+>>> my_name(98, l_name)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+"checking with string and a list"
+>>> my_name(f_name, t_list)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+"checking with a list and a string"
+>>> my_name(t_list, l_name)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+"Checking with a tuple and a string"
+>>> my_name(t_tuple, l_name)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+"Checking with a string and a tuple"
+>>> my_name(f_name, t_dict)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+"Checking with a string and a dictionary"
+>>> my_name(f_name, t_dict)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+"Checking with a string and a dictionary"
+>>> my_name(t_dict, l_name)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+"Checking with a string and a bool"
+>>> my_name(f_name, True)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+"Chaecking a bool and a string"
+>>> my_name(True, l_name)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string

@@ -1,0 +1,149 @@
+"Module for testing matrix divide function"
+======================================================
+"Function to test: matrix_divided()"
+======================================================
+
+"importing the function"
+>>> mat_div = __import__("2-matrix_divided").matrix_divided
+
+"Testing for module documentation"
+>>> m_doc = __import__("2-matrix_divided").__doc__
+>>> len(m_doc) > 1
+True
+
+"Testing for function documentation"
+>>> f_doc = __import__("2-matrix_divided").matrix_divided.__doc__
+>>> len(f_doc) > 1
+True
+
+>>> mat_1 = [[1, 2, 3], [4, 5, 6]]
+>>> mat_2 = [[1, -4, 6], [6.45, 9.363, -5.7], [-3, -2.645, -6]]
+>>> mat_3 = [[1, -4, 6], [6.45, 9.363, -5.7, 3.99], [-3, -2.645]]
+>>> str = "sammy"
+>>> t_flt = 2.5
+>>> t_dict = {"key": 2}
+>>> t_tuple = (1, 2, 3)
+>>> t_list= [1, 2, 3]
+>>> NaN_list = ['a', 'b', 'c']
+>>> NaN_matrix = [['a', 'b', 'c'], ['d', 'e', 'f']]
+>>> NaN_matrix_1 = [{"key": 1}, {"key": 2}]
+>>> NaN_matrix_2 = [(1, 2, 3), (1, 2, 3)]
+>>> NaN_matrix_3 = [{1, 2, 3}, {4, 5, 6}]
+
+"Testing with matrix of positive integers"
+>>> mat_div(mat_1, 2)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+"Testing with matrix of float and -ve numbers"
+>>> mat_div(mat_2, 2)
+[[0.5, -2.0, 3.0], [3.23, 4.68, -2.85], [-1.5, -1.32, -3.0]]
+
+"Testing with matrix of lists of unequal set of numbers"
+>>> mat_div(mat_3, 2)
+Traceback (most recent call last):
+...
+ValueError: Each row of the matrix must have the same size
+
+"Testing with float and number"
+>>> mat_div(t_flt, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a dictionary and a number"
+>>> mat_div(t_dict, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a string and matrix"
+>>> mat_div(str, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with two strings"
+>>> mat_div(str, str)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a tuple and a number"
+>>> mat_div(t_tuple, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a list and a number"
+>>> mat_div(t_list, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a list of NaN and a number"
+>>> mat_div(NaN_list, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a matrix of list of NaN and a number"
+>>> mat_div(NaN_matrix, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a matrix of list of dictionary"
+>>> mat_div(NaN_matrix_1, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a matrix of list of tuples"
+>>> mat_div(NaN_matrix_2, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a matrix of list of tuples"
+>>> mat_div(NaN_matrix_3, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a bool and a number"
+>>> mat_div(True, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a -ve integer"
+>>> mat_div(-4, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a +ve integer"
+>>> mat_div(4, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"Testing with a 0 divisor"
+>>> mat_div(mat_1, 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+"Testing with a -ve divisor"
+>>> mat_div(mat_2, -4)
+[[-0.25, 1.0, -1.5], [-1.61, -2.34, 1.43], [0.75, 0.66, 1.5]]
+
+"Testing with a float divisor"
+>>> mat_div(mat_1, 2.5)
+[[0.4, 0.8, 1.2], [1.6, 2.0, 2.4]]
+
+"Testing with a matrix and a list"
+>>> mat_div(mat_1, t_list)
+Traceback (most recent call last):
+...
+TypeError: div must be a number

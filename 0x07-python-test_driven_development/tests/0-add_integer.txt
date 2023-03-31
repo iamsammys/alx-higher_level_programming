@@ -6,6 +6,16 @@ Function to test: add_integer()
 "Importing the function"
 >>> add_int = __import__("0-add_integer").add_integer
 
+"Testing module documentation"
+>>> m_doc = __import__("0-add_integer").__doc__
+>>> len(m_doc) > 1
+True
+
+"Testing for function documentation"
+>>> f_doc = __import__("0-add_integer").add_integer.__doc__
+>>> len(f_doc) > 1
+True
+
 "Testing with two +ve integers"
 >>> add_int(9, 9)
 18
