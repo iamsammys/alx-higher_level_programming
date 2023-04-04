@@ -1,0 +1,76 @@
+"A test modeule for print_square"
+=============================================
+"Function: print_square()"
+=============================================
+
+"importing the function"
+>>> _print = __import__("4-print_square").print_square
+
+"Testing the module docummentation"
+>>> m_doc = __import__("4-print_square").__doc__
+>>> len(m_doc) > 1
+True
+
+"Testing the function documentation"
+>>> f_doc = _print.__doc__
+>>> len(f_doc) > 1
+True
+
+"positive integer"
+>>> _print(2)
+##
+##
+
+"Negative integer"
+>>> _print(-2)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+"Float"
+>>> _print(2.3)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+"String"
+>>> _print("Sammy")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+"List"
+>>> _print(["sammy", 3, 7])
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+"Dictionary"
+>>> _print({"key": "Sammy", "key_2": "Ezeh"})
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+"Boolean"
+>>> _print(True)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+"Infinty"
+>>> _print('inf')
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+"NaN"
+>>> _print('NaN')
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+"Empty function"
+>>> _print()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'

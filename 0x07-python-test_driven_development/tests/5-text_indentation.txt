@@ -1,0 +1,65 @@
+"Test module for 5-text_indentation.py
+-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+"Function: text_indentation()"
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+"importing the function"
+>>> _indent = __import__("5-text_indentation").text_indentation
+
+"Testing the module documentation"
+>>> m_doc = __import__("5-text_indentation").__doc__
+>>> len(m_doc) > 1
+True
+
+"Testing function documentation"
+>>> f_doc = _indent.__doc__
+>>> len(f_doc) > 1
+True
+
+>>> text = ".?,"
+
+"Testing with text"
+>>> _indent(text)
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+,
+
+"Normal string"
+>>> _indent("Sammy")
+Sammy
+
+"Integers"
+>>> _indent(98)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+"List"
+>>> _indent([2, 1, 4])
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+"Dictionary"
+>>> _indent({"key": "Sammy"})
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+"Boolean"
+>>> _indent(True)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+"inf"
+>>> _indent('inf')
+inf
+
+"Nill argument"
+>>> _indent()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
