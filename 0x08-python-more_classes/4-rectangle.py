@@ -93,8 +93,9 @@ class Rectangle:
 
     def __repr__(self):
         """Returns the repr representation of object
-        
+
         Return:
             str: the string to get
         """
-        return "{}({:d}, {:d})".format(self.__class__.__name__, self.__width, self.__height)
+        return "{}({:d}, {:d})".format(self.__class__.__name__,
+                                       self.__width, self.__height)
