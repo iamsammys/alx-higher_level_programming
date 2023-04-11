@@ -1,0 +1,52 @@
+"Test for file for MyList class"
+=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=
+class to test: MyList
+-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+"importing the class"
+>>> my_list = __import__("1-my_list").MyList
+
+"Testing the module documentation"
+>>> c = __import__("1-my_list").__doc__
+>>> len(c) > 1
+True
+
+"Testing the class documentation"
+>>> c = my_list.__doc__
+>>> len(c) > 1
+True
+
+"list of integers"
+>>> lst = my_list()
+>>> lst.append(1)
+>>> lst.append(2)
+>>> lst.append(3)
+>>> lst.append(4)
+>>> lst.print_sorted()
+[1, 2, 3, 4]
+
+"List of strings"
+>>> lst = my_list()
+>>> lst.append("Sammy")
+>>> lst.append("a")
+>>> lst.append("b")
+>>> lst.append("c")
+>>> lst.print_sorted()
+['Sammy', 'a', 'b', 'c']
+
+"list of tuples of integers"
+>>> lst = my_list()
+>>> lst.append((1, 2))
+>>> lst.append((3, 4))
+>>> lst.append((5, 6))
+>>> lst.print_sorted()
+[(1, 2), (3, 4), (5, 6)]
+
+"List of bools"
+>>> lst = my_list()
+>>> lst.append(True)
+>>> lst.append(False)
+>>> lst.append(True)
+>>> lst.append(False)
+>>> lst.print_sorted()
+[False, False, True, True]
