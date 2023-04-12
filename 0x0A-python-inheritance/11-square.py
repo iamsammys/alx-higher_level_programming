@@ -26,11 +26,11 @@ class Square(Rectangle):
             int: area of Rectangle
         """
         return self.__size ** 2
-    
+
     def __str__(self):
         """returns the string representation of Square
 
         Returns:
             str: str() format
         """
-        return "[{}] {}/{}".format(self.__class__.__name__, self.__size, self.__size)
+        return "[{}] {}/{}".format("Square", self.__size, self.__size)
