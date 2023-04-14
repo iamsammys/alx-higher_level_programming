@@ -3,8 +3,6 @@
 """module to implement a class Student
 """
 
-import json
-
 
 class Student:
     """a class Student
