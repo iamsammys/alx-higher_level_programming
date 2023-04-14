@@ -11,13 +11,12 @@ load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
 try:
     my_list = load_from_json_file("add_item.json")
-except:
+except Exception:
     my_list = []
 
 [my_list.append(args) for args in argv if args != argv[0]]
 
 try:
     save_to_json_file(my_list, "add_item.json")
-except Exception as e:
-    print("try failed again")
-    print(e)
+except Exception:
+    pass

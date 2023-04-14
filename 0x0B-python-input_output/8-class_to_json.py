@@ -13,4 +13,3 @@ def class_to_json(obj):
         dictionary for json serialization
     """
     return {key: value for key, value in obj.__dict__.items()}
-        
