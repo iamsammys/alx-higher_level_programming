@@ -11,6 +11,12 @@ class Rectangle(Base):
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         """initialises the class instances
+
+        Args:
+            width (int): width of the rectangle instance
+            height (int): height of the rectangle object
+            x (int): an attribute of the object
+            y (int): an attribute of the object
         """
         super().__init__(id)
         self.width = width
@@ -138,27 +144,37 @@ class Rectangle(Base):
         Args:
             args: a list of arguments
         """
-        if kwargs is not None and len(kwargs) != 0:
-            for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                elif key == "width":
-                    self.__width = value
-                elif key == "height":
-                    self.__height = value
-                elif key == "x":
-                    self.__x = value
-                elif key == "y":
-                    self.__y = value
-        elif args is not None and len(args) != 0:
+        if args is not None and len(args) != 0:
             for idx, value in enumerate(args):
                 if idx == 0:
                     self.id = value
                 elif idx == 1:
-                    self.__width = value
+                    self.width = value
                 elif idx == 2:
-                    self.__height = value
+                    self.height = value
                 elif idx == 3:
-                    self.__x = value
+                    self.x = value
                 elif idx == 4:
-                    self.__y = value
+                    self.y = value
+        elif kwargs is not None and len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
+
+    def to_dictionary(self):
+        """returns dictionary representation of instances of the class
+
+        Returns:
+            dict: the dict format of object
+        """
+        return {"id": self.id, "width": self.width,
+                "height": self.height, "x": self.x,
+                "y": self.y}
