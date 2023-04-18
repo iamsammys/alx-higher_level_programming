@@ -22,7 +22,7 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = self.__nb_objects
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns the json represention of list dictionaries
@@ -88,7 +88,7 @@ class Base:
         """
         filename = "{}.json".format(cls.__name__)
         inst_list = []
-        
+
         with open(filename, "r", encoding="utf-8") as file:
             json_list = file.read()
             dict_list = cls.from_json_string(json_list)
