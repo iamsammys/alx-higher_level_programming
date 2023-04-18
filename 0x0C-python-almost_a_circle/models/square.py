@@ -88,3 +88,11 @@ class Square(Rectangle):
         """
         return {"id": self.id, "size": self.size,
                 "x": self.x, "y": self.y}
+
+    def to_csv(self):
+        """Creates a list with Square attributes
+
+        Returns:
+            A Square attributes' list for csv file
+        """
+        return [self.id, self.size, self.x, self.y]
