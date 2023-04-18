@@ -49,7 +49,7 @@ class Base:
                 file.write(json_string)
 
             else:
-                file.write(dict_list)
+                json.dump(dict_list, file)
 
     @staticmethod
     def from_json_string(json_string):
