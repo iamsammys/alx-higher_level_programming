@@ -32,7 +32,7 @@ class Base:
         """
         if list_dictionaries is not None and len(list_dictionaries) > 0:
             return json.dumps(list_dictionaries)
-        return []
+        return "[]"
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -58,7 +58,9 @@ class Base:
         Returns:
             a list of dictionary
         """
-        return json.loads(json_string)
+        if json_string is not None and len(json_string) > 0:
+            return json.loads(json_string)
+        return []
 
     @classmethod
     def create(cls, **dictionary):
