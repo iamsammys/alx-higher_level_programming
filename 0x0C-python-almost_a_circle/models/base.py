@@ -91,9 +91,12 @@ class Base:
         filename = "{}.json".format(cls.__name__)
         inst_list = []
 
-        with open(filename, "r", encoding="utf-8") as file:
-            json_list = file.read()
-            dict_list = cls.from_json_string(json_list)
-            for dictionary in dict_list:
-                inst_list.append(cls.create(**dictionary))
-        return inst_list
+        try:
+            with open(filename, "r", encoding="utf-8") as file:
+                json_list = file.read()
+                dict_list = cls.from_json_string(json_list)
+                for dictionary in dict_list:
+                    inst_list.append(cls.create(**dictionary))
+                return inst_list
+        except Exception:
+            return inst_list
