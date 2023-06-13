@@ -9,7 +9,8 @@ const factorial = number => {
 };
 const num = parseInt(process.argv[2]);
 if (num) {
-  console.log(factorial(num));
+  const res = factorial(num);
+  console.log(res);
 } else {
   console.log(1);
 }
