@@ -7,11 +7,14 @@ class Rectangle {
     }
   }
 
-  print (c = 'X') {
+  print () {
     for (let i = 0; i < this.height; i++) {
-      console.log(c.repeat(this.width));
+      let newStr = '';
+      for (let j = 0; j < this.width; j++) {
+        newStr += 'X';
+      }
+      console.log(newStr);
     }
   }
 }
-
 module.exports = Rectangle;
