@@ -1,29 +1,33 @@
 #!/usr/bin/python3
+"""python script that lists all states from the database hbtn_0e_0_usa
 """
-A script that takes in arguments and displays all values
-"""
+
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    un = argv[1]
-    pw = argv[2]
-    dbn = argv[3]
-    search = argv[4]
-
-    mydb = MySQLdb.connect(host="localhost", user=un,
-                           port=3306, db=dbn, passwd=pw)
-    cur = mydb.cursor()
-    no_rows = cur.execute("SELECT cities.name FROM cities INNER JOIN states\
-                          ON cities.state_id = states.id\
-                          WHERE states.name = '{:s}'".format(search))
-    rows = cur.fetchall()
-    i = 1
-    for row in rows:
-        print(row[0], end="")
-        if i < no_rows:
-            print(end=", ")
+    userName = sys.argv[1]
+    dataBase = sys.argv[3]
+    paswd = sys.argv[2]
+    db = MySQLdb.connect(host="localhost", user=userName,
+                         port=3306, db=dataBase, passwd=paswd)
+    cur = db.cursor()
+    nameMatch = sys.argv[4]
+    query = "SELECT cities.name\
+            FROM cities\
+            WHERE cities.state_id = (SELECT states.id\
+            FROM states\
+            WHERE states.name = %s)\
+            ORDER BY cities.id ASC"
+    cur.execute(query, (nameMatch,))
+    row_query = cur.fetchall()
+    i = 0
+    for rows in row_query:
+        if i == (len(row_query) - 1):
+            print(rows[0], end="")
+            print()
+        else:
+            print("{}, ".format(rows[0]), end="")
         i += 1
-    print()
     cur.close()
-    mydb.close()
+    db.close()
