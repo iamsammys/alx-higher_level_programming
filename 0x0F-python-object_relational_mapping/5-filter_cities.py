@@ -23,11 +23,11 @@ if __name__ == "__main__":
     row_query = cur.fetchall()
     i = 1
     for rows in row_query:
-        if i == (numRows):
-            print(rows[0], end="")
-            print()
+        print(rows[0], end="")
+        if i < numRows:
+            print(end=", ")
         else:
-            print("{}, ".format(rows[0]), end="")
+            print()
         i += 1
     cur.close()
     db.close()
