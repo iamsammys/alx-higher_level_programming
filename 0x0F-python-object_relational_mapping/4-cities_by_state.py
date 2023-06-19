@@ -1,23 +1,21 @@
 #!/usr/bin/python3
+"""python script that lists all states from the database hbtn_0e_0_usa
 """
-A script that takes in arguments and displays all values
-"""
+
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    un = argv[1]
-    pw = argv[2]
-    dbn = argv[3]
-
-    mydb = MySQLdb.connect(host="localhost", user=un,
-                           port=3306, db=dbn)
-    cur = mydb.cursor()
-    no_rows = cur.execute("SELECT cities.id, cities.name, states.name\
-                          FROM cities INNER JOIN states ON\
-                          cities.state_id = states.id")
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    userName = sys.argv[1]
+    dataBase = sys.argv[3]
+    paswd = sys.argv[2]
+    db = MySQLdb.connect(host="localhost", user=userName,
+                         port=3306, db=dataBase, passwd=paswd)
+    cur = db.cursor()
+    query = "SELECT * FROM cities ORDER BY cities.id ASC"
+    cur.execute(query)
+    row_query = cur.fetchall()
+    for rows in row_query:
+        print(rows)
     cur.close()
-    mydb.close()
+    db.close()
