@@ -20,7 +20,7 @@ if __name__ == "__main__":
             WHERE cities.state_id = (SELECT states.id\
             FROM states\
             WHERE states.name = %s)\
-            ORDER BY cities.id ASC"
+            ORDER BY cities.id ASC;"
     numRows = cur.execute(query, (nameMatch,))
     row_query = cur.fetchall()
     i = 1
