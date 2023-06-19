@@ -1,16 +1,15 @@
 #!/usr/bin/python3
+"""python script that contains the class definition of
+a State and an instance Base
 """
-A python file that contains the class definition of a State
-"""
-import sqlalchemy
-from sqlalchemy import Integer, String, Column
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Integer, String, Column
 
 Base = declarative_base()
 
+
 class State(Base):
-    """
-    A class representing states table
+    """representation for states
     """
     __tablename__ = "states"
     id = Column(Integer, primary_key=True)
