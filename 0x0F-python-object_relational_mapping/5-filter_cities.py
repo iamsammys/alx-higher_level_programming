@@ -19,11 +19,11 @@ if __name__ == "__main__":
             FROM states\
             WHERE states.name = %s)\
             ORDER BY cities.id ASC"
-    cur.execute(query, (nameMatch,))
+    numRows = cur.execute(query, (nameMatch,))
     row_query = cur.fetchall()
-    i = 0
+    i = 1
     for rows in row_query:
-        if i == (len(row_query) - 1):
+        if i == (numRows - 1):
             print(rows[0], end="")
             print()
         else:
