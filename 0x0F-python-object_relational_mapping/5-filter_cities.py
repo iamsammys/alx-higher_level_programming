@@ -23,7 +23,7 @@ if __name__ == "__main__":
     row_query = cur.fetchall()
     i = 1
     for rows in row_query:
-        if i == (numRows - 1):
+        if i == (numRows):
             print(rows[0], end="")
             print()
         else:
