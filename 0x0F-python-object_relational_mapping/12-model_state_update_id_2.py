@@ -1,23 +1,22 @@
 #!/usr/bin/python3
 """
-Changes the name of a State objects from the database
+script that adds the State object to the database
 """
-
-from model_state import Base, State
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sys import argv
+from model_state import State, Base
+import sys
+
 
 if __name__ == "__main__":
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
-                           .format(argv[1], argv[2], argv[3]))
-    Base.metadata.create_all(engine)
+    user = sys.argv[1]
+    passwd = sys.argv[2]
+    db = sys.argv[3]
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".format
+                           (user, passwd, db))
     Session = sessionmaker(bind=engine)
     session = Session()
-    try:
-        new_state = session.query(State).filter(State.id == 2).one()
-        new_state.name = "New Mexico"
-    except exception as e:
-        print("Not found")
+    state = session.query(State).filter(State.id == 2).one()
+    state.name = "New Mexico"
     session.commit()
     session.close()
