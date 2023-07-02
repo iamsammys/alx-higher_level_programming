@@ -2,6 +2,7 @@
 """module to find the peak number from a list of numbers
 """
 
+
 def find_peak(list_of_integers):
     """function that finds a peak in a list of unsorted integers
 
@@ -13,11 +14,11 @@ def find_peak(list_of_integers):
     """
     if len(list_of_integers) <= 0:
         return None
-    l, r = 0, len(list_of_integers) - 1
-    while l < r:
-        mid = (r + l) // 2
+    left, right = 0, len(list_of_integers) - 1
+    while left < right:
+        mid = (right + left) // 2
         if list_of_integers[mid] < list_of_integers[mid + 1]:
-            l = mid + 1
+            left = mid + 1
         else:
-            r = mid
-    return list_of_integers[l]
+            right = mid
+    return list_of_integers[left]
